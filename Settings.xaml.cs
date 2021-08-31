@@ -16,7 +16,7 @@ using System.ComponentModel;
 using Xceed.Wpf.Toolkit;
 
 
-namespace Clicker
+namespace ClickerBuddy
 {
 	/// <summary>
 	/// Interaction logic for Settings.xaml

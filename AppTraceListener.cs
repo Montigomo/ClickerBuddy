@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Diagnostics;
 
-namespace Clicker
+namespace ClickerBuddy
 {
 
 	public class AppTraceListener : TraceListener

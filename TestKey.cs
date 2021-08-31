@@ -7,7 +7,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 
-namespace Clicker
+namespace ClickerBuddy
 {
 	public class TestKey : INotifyPropertyChanged
 	{

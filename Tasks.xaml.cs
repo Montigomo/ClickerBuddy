@@ -18,7 +18,7 @@ using System.Windows.Threading;
 using Agitech;
 using Agitech.Wpf;
 
-namespace Clicker
+namespace ClickerBuddy
 {
 	/// <summary>
 	/// Interaction logic for Tasks.xaml

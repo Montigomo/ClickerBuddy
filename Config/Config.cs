@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 
 using Agitech;
 
-namespace Clicker
+namespace ClickerBuddy
 {
 	public class Config : INotifyPropertyChanged
 	{

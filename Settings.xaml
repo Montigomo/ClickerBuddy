@@ -1,8 +1,8 @@
-﻿<Window x:Name="wndSettings" x:Class="Clicker.Settings"
+﻿<Window x:Name="wndSettings" x:Class="ClickerBuddy.Settings"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 				xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-				xmlns:local="clr-namespace:Clicker"
+				xmlns:local="clr-namespace:ClickerBuddy"
         Title="Settings" Height="300" Width="300" WindowStyle="ToolWindow" Loaded="wndSettings_Loaded" Icon="Media/gearYellow.ico">
 	<Window.Resources>
 		<local:Config x:Key="config"/>

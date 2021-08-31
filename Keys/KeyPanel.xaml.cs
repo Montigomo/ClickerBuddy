@@ -20,7 +20,7 @@ using Agitech;
 using Agitech.Native;
 using Agitech.Extensions;
 
-namespace Clicker.Keys
+namespace ClickerBuddy.Keys
 {
 	/// <summary>
 	/// Interaction logic for KeyPanel.xaml

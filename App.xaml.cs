@@ -16,7 +16,7 @@ using Agitech;
 using Agitech.Native;
 using Agitech.App;
 
-namespace Clicker
+namespace ClickerBuddy
 {
 	/// <summary>
 	/// Interaction logic for App.xaml

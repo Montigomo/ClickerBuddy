@@ -23,7 +23,7 @@ using Agitech.Native;
 using Agitech.Wpf;
 using Agitech.Extensions;
 
-namespace Clicker
+namespace ClickerBuddy
 {
 
 	/// <summary>

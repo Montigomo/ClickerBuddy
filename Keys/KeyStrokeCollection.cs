@@ -21,7 +21,7 @@ using Agitech;
 using Agitech.Extensions;
 
 
-namespace Clicker.Keys
+namespace ClickerBuddy.Keys
 {
 	[Serializable()]
 	public class KeyStrokeCollection : ObservableCollection<KeyStroke>

@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Collections.Specialized;
 using Agitech;
 
-namespace Clicker
+namespace ClickerBuddy
 {
 	[Serializable()]
 	public class KeyStroke : AgtKeyStroke

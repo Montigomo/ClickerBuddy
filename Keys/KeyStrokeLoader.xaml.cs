@@ -18,7 +18,7 @@ using System.Runtime.Serialization;
 using System.Collections.ObjectModel;
 using Agitech.Extensions;
 
-namespace Clicker.Keys
+namespace ClickerBuddy.Keys
 {
 	/// <summary>
 	/// Interaction logic for KeyStrokeLoader.xaml

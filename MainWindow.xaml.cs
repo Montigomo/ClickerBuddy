@@ -14,7 +14,7 @@ using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
-namespace Clicker
+namespace ClickerBuddy
 {
 
 	/// <summary>
@@ -213,13 +213,13 @@ namespace Clicker
 
 			switch (color)
 			{
-				case Clicker.TbIconColor.Reg:
+				case ClickerBuddy.TbIconColor.Reg:
 					icoUri = new Uri("pack://application:,,,/Media/gearReg.ico");
 					break;
-				case Clicker.TbIconColor.Yellow:
+				case ClickerBuddy.TbIconColor.Yellow:
 					icoUri = new Uri("pack://application:,,,/Media/reagYellow.ico");
 					break;
-				case Clicker.TbIconColor.Green:
+				case ClickerBuddy.TbIconColor.Green:
 				default:
 					icoUri = new Uri("pack://application:,,,/Media/gearGreen.ico");
 					break;
@@ -238,13 +238,13 @@ namespace Clicker
 			Uri icoUri;
 			switch (color)
 			{
-				case Clicker.TbIconColor.Reg:
+				case ClickerBuddy.TbIconColor.Reg:
 					icoUri = new Uri("pack://application:,,,/Media/gearRegB.ico");
 					break;
-				case Clicker.TbIconColor.Yellow:
+				case ClickerBuddy.TbIconColor.Yellow:
 					icoUri = new Uri("pack://application:,,,/Media/reagYellowB.ico");
 					break;
-				case Clicker.TbIconColor.Green:
+				case ClickerBuddy.TbIconColor.Green:
 				default:
 					icoUri = new Uri("pack://application:,,,/Media/gearGreenB.ico");
 					break;
