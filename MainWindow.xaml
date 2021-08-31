@@ -1,0 +1,93 @@
+﻿<Window
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+				xmlns:my="clr-namespace:Agitech;assembly=Agitech" 
+				xmlns:awpf="http://www.agitech.net/wpf"
+				xmlns:local="clr-namespace:Clicker" 
+				xmlns:Keys="clr-namespace:Clicker.Keys" 
+				x:Name="wndMain" x:Class="Clicker.MainWindow"
+	Title="Clicker" Height="435" Width="310"
+	MinWidth="310" MinHeight="435" Icon="Media/gearGreen.ico" ResizeMode="NoResize" 
+	Closed="wndMain_Closed" Loaded="wndMain_Loaded" 
+	Closing="wndMain_Closing" ShowInTaskbar="False" 
+	Initialized="wndMain_Initialized" 
+	Activated="wndMain_Activated" 
+	GotFocus="wndMain_GotFocus"
+	SourceInitialized="wndMain_SourceInitialized">
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="25"/>
+		</Grid.RowDefinitions>
+		<TabControl Margin="0" Grid.Row="0">
+			<TabItem Header="Keys">
+				<Grid Background="#FFE5E5E5">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="0"/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+
+					<Keys:KeyPanel x:Name="keyPanelA" HorizontalAlignment="Left" Margin="3,0,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Log">
+				<Grid Background="#FFE5E5E5" Margin="0">
+					<RichTextBox x:Name="txtLog"  
+						VerticalScrollBarVisibility="Auto" FontSize="11" Background="{x:Null}" Foreground="#FF616161" CaretBrush="#FFDADADA" 
+						FontFamily="Courier New" FontWeight="Normal" AllowDrop="False" IsReadOnly="True" IsUndoEnabled="False" 
+						IsTabStop="False" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False" ForceCursor="True" TextChanged="txtLog_TextChanged" />
+				</Grid>
+			</TabItem>
+		</TabControl>
+
+		<StatusBar Grid.Row="1">
+			<StatusBar.ItemsPanel>
+				<ItemsPanelTemplate>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="4*"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+					</Grid>
+				</ItemsPanelTemplate>
+			</StatusBar.ItemsPanel>
+			<StatusBarItem Grid.Column="0" HorizontalContentAlignment="Stretch">
+				<TextBlock x:Name="txtOperation"><Run /></TextBlock>
+			</StatusBarItem>
+			<StatusBarItem Grid.Column="1">
+				<ProgressBar x:Name="progressBarMain" Width="120" Height="18"
+					Value="{Binding Progress, ElementName=windowMain, Mode=OneWay}">
+					<ProgressBar.Style>
+						<Style>
+							<Style.Triggers>
+								<DataTrigger Binding="{Binding Path=ProgressVisibility, ElementName=wndMain}" Value="false">
+									<Setter Property="UIElement.Visibility" Value="Hidden" />
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</ProgressBar.Style>
+				</ProgressBar>
+			</StatusBarItem>
+			<StatusBarItem Grid.Column="2">
+				<TextBlock x:Name="txtDetails"><Run Text=""/></TextBlock>
+			</StatusBarItem>
+		</StatusBar>
+
+		<awpf:TaskbarIcon x:Name="tb" IconSource="/Media/gearGreen.ico" ToolTipText="Clicker Buddy" TrayMouseDoubleClick="tb_TrayMouseDoubleClick">
+			<awpf:TaskbarIcon.ContextMenu>
+				<ContextMenu>
+					<MenuItem Header="Show/Hide" Click="tbShowHideMI_Click" />
+					<MenuItem Header="Exit" Click="tbCloseMI_Click" />
+				</ContextMenu>
+			</awpf:TaskbarIcon.ContextMenu>
+		</awpf:TaskbarIcon>
+
+	</Grid>
+
+
+</Window>

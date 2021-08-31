@@ -1,0 +1,95 @@
+﻿<Window
+				xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				x:Name="WndTasks" x:Class="Clicker.Tasks"
+		xmlns:local="clr-namespace:Clicker"
+				xmlns:awpf="http://www.agitech.net/wpf"
+				Title="Tasks" Height="600" Width="800" Loaded="WndTasks_Loaded" Closed="WndTasks_Closed" Background="#FFE0E0E0" Icon="Media/gearGreen.ico">
+	<Window.Resources>
+		<!--<ObjectDataProvider x:Key="PtrData" ObjectType="{x:Type local:MainWindow}" MethodName="PtrList"/>-->
+		<!--<local:IntPtrConverter x:Key="IntPtrConverter"></local:IntPtrConverter>-->
+	</Window.Resources>
+	<Window.InputBindings>
+		<KeyBinding Command="{x:Static local:Tasks.CmdActions}"
+								Gesture="F5" CommandParameter="Refresh"/>
+		<!--<KeyBinding Command="{x:Static local:Tasks.CmdRefresh}" 
+								Gesture="F6" CommandParameter="Modify"/>
+		<KeyBinding Command="{x:Static local:Tasks.CmdRefresh}"
+								Gesture="F7" CommandParameter="Delete"/>
+		<KeyBinding Command="{x:Static local:Tasks.CmdRefresh}"
+								Gesture="F8" CommandParameter="Refresh"/>-->
+	</Window.InputBindings>
+	<Window.CommandBindings>
+		<!--<CommandBinding Command="NavigationCommands.Refresh" Executed="CommandBinding_Executed_Refresh" />-->
+	</Window.CommandBindings>
+
+	<Grid ScrollViewer.VerticalScrollBarVisibility="Auto"  ScrollViewer.CanContentScroll="True">
+		<Grid.RowDefinitions>
+			<RowDefinition></RowDefinition>
+			<RowDefinition Height="36"></RowDefinition>
+		</Grid.RowDefinitions>
+
+		<awpf:TreeListView Height="100" Width="100"/>
+
+
+		<awpf:TreeListView x:Name="trvMain" IsEnabled="True" ScrollViewer.CanContentScroll="True" AlternationCount="3" Grid.Row="0">
+			<awpf:TreeListView.ContextMenu>
+				<ContextMenu>
+					<MenuItem Header="Select" Command="{x:Static local:Tasks.CmdActions}"  CommandParameter="Select"/>
+					<MenuItem Header="Refresh" Command="{x:Static local:Tasks.CmdActions}"  CommandParameter="Refresh"/>
+					<MenuItem Header="Cancel" Command="{x:Static local:Tasks.CmdActions}"  CommandParameter="Cancel"/>
+				</ContextMenu>
+			</awpf:TreeListView.ContextMenu>
+			<awpf:TreeListView.ColumnsList>
+				<GridViewColumn Header="ModuleName">
+					<GridViewColumn.CellTemplate>
+						<DataTemplate>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="15"></ColumnDefinition>
+									<ColumnDefinition Width="*"></ColumnDefinition>
+								</Grid.ColumnDefinitions>
+								<Image Grid.Column="0" Source="{Binding Path=ModuleImage}" Width="16" Height="16"></Image>
+								<TextBlock Grid.Column="1" Text="{Binding Path=ModuleName}" TextWrapping="NoWrap" 
+									HorizontalAlignment="Left" TextAlignment="Left" OverridesDefaultStyle="True" VerticalAlignment="Center" />
+							</Grid>
+						</DataTemplate>
+					</GridViewColumn.CellTemplate>
+				</GridViewColumn>
+				<GridViewColumn Header="Handle" DisplayMemberBinding="{Binding HandleInt, StringFormat='0x{0,8:X8}'}" />
+				<GridViewColumn Header="Class" DisplayMemberBinding="{Binding ClassName}" />
+			</awpf:TreeListView.ColumnsList>
+
+			<awpf:TreeListView.ItemTemplate>
+				<HierarchicalDataTemplate ItemsSource="{Binding ChildWindows}">
+					<TextBlock Text="{Binding Name}" />
+				</HierarchicalDataTemplate>
+			</awpf:TreeListView.ItemTemplate>
+		</awpf:TreeListView>
+
+
+		<StatusBar Grid.Row="1">
+			<StatusBar.ItemsPanel>
+				<ItemsPanelTemplate>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+					</Grid>
+				</ItemsPanelTemplate>
+			</StatusBar.ItemsPanel>
+			<StatusBarItem Grid.Column="0" HorizontalContentAlignment="Stretch">
+				<TextBlock x:Name="txtOperation"><Run /></TextBlock>
+			</StatusBarItem>
+			<StatusBarItem Grid.Column="2" HorizontalAlignment="Right">
+				<StackPanel Orientation="Horizontal" Margin="5,0">
+					<Button x:Name="btnRefresh" Width="75" Content="Refresh" Margin="5,0" Command="{x:Static local:Tasks.CmdActions}"  CommandParameter="Refresh" />
+					<Button x:Name="btnSelect" Width="75" Content="Select" Margin="5,0" Command="{x:Static local:Tasks.CmdActions}"  CommandParameter="Select" />
+					<Button x:Name="btnCancel" Width="75" Content="Cancel" Margin="5,0" Command="{x:Static local:Tasks.CmdActions}"  CommandParameter="Cancel" />
+				</StackPanel>
+			</StatusBarItem>
+		</StatusBar>
+		<awpf:TaskbarIcon HorizontalAlignment="Left" Height="100" Margin="188,361,0,0" VerticalAlignment="Top" Width="100"/>
+	</Grid>
+</Window>

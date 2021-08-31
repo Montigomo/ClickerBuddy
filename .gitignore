@@ -1,0 +1,8 @@
+*.svn-base
+.svn
+_output
+Debug
+/bin/Release
+/obj/Release
+/obj/x86/Release
+/packages/

@@ -1,0 +1,5 @@
+Clicker.exe
+Agitech.dll
+Agitech.WPF.dll
+Xceed.Wpf.Toolkit.dll
+SmartThreadPool.dll 
